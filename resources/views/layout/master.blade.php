@@ -9,6 +9,13 @@
     <title>
         Hospital Infantil
     </title>
+
+    {{-- META PARA RUTA DINAMICA --}}
+    <meta name="route" id="route" value="{{ url('/') }}">
+
+    {{-- TOKEN PARA CAMBIOS --}}
+    <meta name="token" id="token" value="{{ csrf_token() }}">
+
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -20,7 +27,16 @@
     <link rel="stylesheet" type="text/css" href="css/all.min.css">
     <script src="js/all.min.js"></script>
 
+    {{-- Vue --}}
+    <script src="js/vue.js"></script>
+    <script src="js/vue-resource.js"></script>
 
+
+    {{-- <script src="js/jquery-3.6.0.js"></script> --}}
+
+    {{-- Sweet Alert --}}
+    <link rel="stylesheet" href="css/sweetalert2.css" type="text/css">
+    <script src="js/sweetalert2.js"></script>
 
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
@@ -212,10 +228,14 @@
     </div>
     @stack('scripts')
     <!--   Core JS Files   -->
+    <script src="js/jquery.min.js"></script>
     <script src="js/core/popper.min.js"></script>
     <script src="js/core/bootstrap.min.js"></script>
     <script src="js/plugins/perfect-scrollbar.min.js"></script>
     <script src="js/plugins/smooth-scrollbar.min.js"></script>
+    {{-- J Query --}}
+
+
     {{-- <script src="js/plugins/chartjs.min.js"></script> --}}
 
     {{-- <script>

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use JetBrains\PhpStorm\Pure;
+use Mockery\Generator\StringManipulation\Pass\Pass;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::view('patient','patients.patient')->name('patient');
+
+Route::apiResource('apiPatient','App\Http\Controllers\PatientController');
