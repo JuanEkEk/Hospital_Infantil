@@ -1,5 +1,7 @@
 var route = document.querySelector("[name=route]").value;
 var UrlPatient = route + "/apiPatient";
+// PDF
+var UrlPDF = route + "/report";
 
 new Vue({
     http: {
@@ -189,6 +191,11 @@ new Vue({
             this.origin_hospital = "";
             this.tutor = "";
             this.tutor_telephone = "";
+        },
+
+        showPDF: function (id) {
+            var url = UrlPDF + "?id=" + id;
+            window.open(url, this.id, "_blank");
         },
     },
 

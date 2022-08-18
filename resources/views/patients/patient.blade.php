@@ -44,6 +44,9 @@
                                 <tr>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder"
                                         style="color: #000000 !important">
+                                        #</th>
+                                    <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder"
+                                        style="color: #000000 !important">
                                         Nombre completo</th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder"
                                         style="color: #000000 !important">
@@ -53,10 +56,10 @@
                                         Edad</th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder"
                                         style="color: #000000 !important">
-                                        Fecha de inscripción</th>
+                                        Fecha de <br> inscripción</th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder"
                                         style="color: #000000 !important">
-                                        Hospital de <br> origen</th>
+                                        Hospital de origen</th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder"
                                         style="color: #000000 !important">
                                         Nombre y <br> teléfono del tutor</th>
@@ -67,8 +70,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="patient in patientFilter"
+                                <tr v-for="(patient,index) in patientFilter"
                                     class="align-middle text-center text-secondary text-sm font-weight-bolder">
+                                    <td>@{{ index + 1 }}</td>
                                     <td>@{{ patient.full_name }}</td>
                                     <td>@{{ patient.birth_date }}</td>
                                     <td>@{{ patient.age }}</td>
@@ -82,8 +86,9 @@
                                         <button class="btn btn-secondary btn-sm" v-on:click="editPatient(patient.id)"
                                             title="Editar información"><i
                                                 class="fa-solid fa-pen-to-square fa-sm"></i></button>
-                                        <button class="btn btn-danger btn-sm" title="Descargar pdf"><i
-                                                class="fa-solid fa-file-pdf fa-sm"></i>
+                                        {{-- El pdf se abre en una ventana emergente --}}
+                                        <button class="btn btn-danger btn-sm" title="Descargar pdf"
+                                            v-on:click="showPDF(patient.id)"><i class="fa-solid fa-file-pdf fa-sm"></i>
                                         </button>
                                         <button class="btn btn-primary btn-sm" v-on:click="deletePatient(patient.id)"
                                             title="Eliminar paciente"><i class="fa-solid fa-trash fa-sm"></i></button>

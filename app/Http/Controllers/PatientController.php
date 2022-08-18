@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PatientController extends Controller
 {
@@ -14,7 +15,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        return $patient = Patient::all();
+        // return $patient = Patient::all();
+        return $patient = DB::select('SELECT * FROM patients ORDER BY id ASC');
 
     }
 
